@@ -1,9 +1,12 @@
-let img = new Image();
-img.src = "/img/sand.jpg";
+let sand = new Image();
+let water = new Image();
 
-img.onload = function () {
-  let pat = ctx.createPattern(this, "repeat");
-  /* let pat2 = ctx. */
+sand.src = "img/sand.jpg";
+water.src = "/img/ocean.jpg";
+
+sand.onload = function () {
+  let sandPat = ctx.createPattern(sand, "repeat");
+  let waterPat = ctx.createPattern(water, "repeat");
 
   BigCircle.arc(
     canvas.height * 0.5,
@@ -21,7 +24,7 @@ img.onload = function () {
   );
   BigCircle.closePath();
   ctx.stroke(BigCircle);
-  ctx.fillStyle = pat;
+  ctx.fillStyle = sandPat;
   ctx.fill(BigCircle);
 
   SmallCircle.arc(200, canvas.height / 2, 100, 0.5 * Math.PI, 1.5 * Math.PI);
@@ -34,7 +37,7 @@ img.onload = function () {
   );
   SmallCircle.closePath();
   ctx.stroke(SmallCircle);
-  ctx.fillStyle = "blue";
+  ctx.fillStyle = waterPat;
   ctx.fill(SmallCircle);
 
   Start.rect(400, 300, 5, 100);
