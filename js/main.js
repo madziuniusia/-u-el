@@ -1,0 +1,10 @@
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+const BigCircle = new Path2D();
+const SmallCircle = new Path2D();
+const Start = new Path2D();
+let startGame = false;
+let div;
+let ArrKey = [];
+let ArrPlayers = [];
+let numberOfPlayers = 0;

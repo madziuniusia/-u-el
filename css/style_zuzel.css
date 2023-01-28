@@ -1,0 +1,68 @@
+canvas {
+    border: 1px solid black;
+     background-image: url('/img/ocean.jpg');
+}
+#container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#start {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 36px;
+    background-color: pink;
+    width: 800px;
+    height: 400px;
+}
+#Menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 800px;
+    height: 400px;
+}
+#Players {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-direction: row;
+    width: 800px;
+    height: 400px;
+}
+.bt {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bt:hover {
+    background-color: palevioletred;
+    color: black;
+}
+
+.center {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}

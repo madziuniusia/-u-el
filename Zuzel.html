@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuzel</title>
+    <link rel="stylesheet" href="/css/style_zuzel.css">
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="start">
+            <div id="Menu">
+                <h3>HOW MANY PLAYERS</h3>
+                <div id="Players">
+                    <div id="onePlayer" class="bt">ONE</div>
+                    <div id="twoPlayers" class="bt">TWO</div>
+                    <div id="threePlayers" class="bt">THREE</div>
+                    <div id="fourPlayers" class="bt">FOUR</div>
+                </div>
+            </div>
+            <div id="chooseKey" class="center"></div>
+        </div>
+        <h1>ŻUŻEL</h1>
+        <canvas id="canvas" width="800" height="400"></canvas>
+        <div class="center">
+            <h1 id="h1-center"></h1>
+            <h2 id="h2-center-player1"></h2>
+            <h2 id="h2-center-player2"></h2>
+            <h2 id="h2-center-player3"></h2>
+            <h2 id="h2-center-player4"></h2>
+
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/background.js"></script>
+    <script src="/js/player.js"></script>
+    <script src="/js/menu.js"></script>
+
+    <script>
+        //DODATKI 
+        //https://yonatankra.com/simple-collision-detection-with-path2d/
+        //https://toppng.com/uploads/preview/motorcycle-top-view-png-suzuki-burgma-11563010658gngsfunhmg.png
+        //ctx.moveTo(500, (canvas.height / 2) + 50);
+        //ctx.quadraticCurveTo(0, 100, 100, 200);
+        //ctx.lineTo(canvas.width - canvas.height * 0.5, 0);
+    </script>
+
+</body>
+
+</html>
