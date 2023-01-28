@@ -51,6 +51,7 @@ class Player {
         thisIn.Lap();
         thisIn.End();
         thisIn.DeadWon();
+        thisIn.EveryoneLose();
         thisIn.MotorbikeImg();
       },
       100,
@@ -113,6 +114,11 @@ class Player {
     }
   }
 
+  EveryoneLose() {
+    if (this.alive === false && numberOfPlayers === 1) {
+      document.getElementById("h1-center").innerHTML = "YOU ARE LOSER";
+    }
+  }
   Won() {
     document.getElementById("h1-center").innerHTML = "WON " + this.name;
   }
