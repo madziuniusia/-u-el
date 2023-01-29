@@ -40,7 +40,7 @@ sand.onload = function () {
   ctx.fillStyle = waterPat;
   ctx.fill(SmallCircle);
 
-  Start.rect(400, 300, 5, 100);
+  Start.rect(400, 300, 2, 100);
   Start.closePath();
   ctx.stroke(Start);
   ctx.fillStyle = "#000000";

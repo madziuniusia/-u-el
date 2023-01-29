@@ -43,6 +43,32 @@ function createKeyPlayer(player, numberOfPlayers) {
     if (player > numberOfPlayers) {
       for (let i = 0; i < numberOfPlayers; i++) {
         ArrPlayers[i].Play();
+        for (let i = 0; i < numberOfPlayers; i++) {
+          document.getElementById("h2-center-player" + (i + 1)).innerHTML =
+            "Player" + (i + 1) + ": Lap 0/5";
+          switch (i) {
+            case 0:
+              document.getElementById(
+                "h2-center-player" + (i + 1)
+              ).style.color = "red";
+              break;
+            case 1:
+              document.getElementById(
+                "h2-center-player" + (i + 1)
+              ).style.color = "blue";
+              break;
+            case 2:
+              document.getElementById(
+                "h2-center-player" + (i + 1)
+              ).style.color = "green";
+              break;
+            case 3:
+              document.getElementById(
+                "h2-center-player" + (i + 1)
+              ).style.color = "pink";
+              break;
+          }
+        }
       }
     } else {
       if (!ArrKey.includes(e.key)) {
