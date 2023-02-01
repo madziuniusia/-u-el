@@ -1,9 +1,3 @@
-let sand = new Image();
-let water = new Image();
-
-sand.src = "img/sand.jpg";
-water.src = "/img/ocean.jpg";
-
 sand.onload = function () {
   let sandPat = ctx.createPattern(sand, "repeat");
   let waterPat = ctx.createPattern(water, "repeat");
@@ -40,7 +34,7 @@ sand.onload = function () {
   ctx.fillStyle = waterPat;
   ctx.fill(SmallCircle);
 
-  Start.rect(400, 300, 2, 100);
+  Start.rect(400, 300, 1, 100);
   Start.closePath();
   ctx.stroke(Start);
   ctx.fillStyle = "#000000";

@@ -10,11 +10,16 @@ class Player {
     this.name = name;
     this.key = key;
     this.alive = true;
-    this.x = 410;
+    this.x = 401;
     this.y = 300 + this.number * 20;
     this.alpha = (0.5 / 18) * Math.PI;
     this.numberOfDeadPlayers = 0;
     this.ctx = canvas.getContext("2d");
+    this.canvasTurtle = document.getElementById("canvas-Player" + this.number);
+    this.canvasTurtle.style.display = "block";
+    this.ctxTurtle = this.canvasTurtle.getContext("2d");
+    this.turtle = new Image();
+    this.turtle.src = "img/turtle.png";
   }
 
   Play() {
@@ -52,7 +57,7 @@ class Player {
         thisIn.End();
         thisIn.DeadWon();
         thisIn.EveryoneLose();
-        thisIn.Img();
+        thisIn.DrawTurtle();
         thisIn.IamDead();
       },
       25,
@@ -134,16 +139,20 @@ class Player {
     }
   }
 
-  Img() {
-    this.turtle = new Image();
-    this.turtle.scr = "/img/turtle.png";
-    this.turtle.onload = function () {
-      this.ctx.drawImage(this.turtle, this.x, this.y, 50, 50);
-    };
-    /*                     this.ElCanvas = document.createElement('canvas');
-                                        this.ElCanvas.setAttribute("id", "canvasMotor");
-                                        this.ElCanvas.setAttribute("width", "canvasMotor");
-                                        this.ElCanvas.setAttribute("height", "canvasMotor");
-                                        this.motor = document.getElementById("canvasMotor").getContext('2d') */
+  DrawTurtle() {
+    this.ctxTurtle.clearRect(
+      0,
+      0,
+      this.canvasTurtle.width,
+      this.canvasTurtle.height
+    );
+    this.ctxTurtle.beginPath();
+    this.ctxTurtle.translate(this.x, this.y);
+    this.ctxTurtle.rotate(this.alpha);
+    this.ctxTurtle.drawImage(this.turtle, -15, -15, 30, 30);
+    //this.ctxTurtle.rect(-10, -10, 20, 20);
+    this.ctxTurtle.setTransform(1, 0, 0, 1, 0, 0);
+    this.ctxTurtle.stroke();
+    this.ctxTurtle.closePath();
   }
 }

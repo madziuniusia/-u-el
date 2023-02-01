@@ -89,7 +89,7 @@ function createKeyPlayer(player, numberOfPlayers) {
     document.getElementById("h1-center").innerHTML = "CLICK STH TO START";
     setTimeout(() => {
       document.getElementById("h1-center").innerHTML = "";
-    }, "2000");
+    }, "1000");
   }
   document.addEventListener("keydown", OnKeyDown);
 }

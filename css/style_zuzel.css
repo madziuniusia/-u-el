@@ -1,7 +1,18 @@
 canvas {
     border: 1px solid black;
-     background-image: url('/img/ocean.jpg');
+    background-image: url('/img/ocean.jpg');
+    display: block;
 }
+
+#canvas-Player1,
+#canvas-Player2,
+#canvas-Player3,
+#canvas-Player4 {
+    position: absolute;
+    background-image: none;
+    display: none;
+}
+
 #container {
     height: 90vh;
     display: flex;
@@ -9,16 +20,17 @@ canvas {
     align-items: center;
     flex-direction: column;
 }
+
 #start {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 36px;
     background-color: pink;
     width: 800px;
     height: 400px;
 }
+
 #Menu {
     display: flex;
     justify-content: center;
@@ -27,14 +39,16 @@ canvas {
     width: 800px;
     height: 400px;
 }
+
 #Players {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
     width: 800px;
     height: 400px;
 }
+
 .bt {
     width: 100px;
     height: 100px;
