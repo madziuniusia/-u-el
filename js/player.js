@@ -1,20 +1,35 @@
-class Player {
+export class Player {
   R = 1.5;
   lap = 0;
   dx = 1;
   dy = 1;
   pressed = false;
 
-  constructor(name, key, number) {
+  constructor(
+    name,
+    key,
+    number,
+    SmallCircle,
+    BigCircle,
+    Start,
+    ArrPlayers,
+    numberOfPlayers
+  ) {
     this.number = number;
     this.name = name;
     this.key = key;
+    this.SmallCircle = SmallCircle;
+    this.BigCircle = BigCircle;
+    this.Start = Start;
+    this.ArrDeadPlayer = [];
+    this.ArrPlayers = ArrPlayers;
+    this.numberOfPlayers = numberOfPlayers;
+    this.numberOfDeadPlayers = 0;
     this.alive = true;
     this.x = 401;
     this.y = 300 + this.number * 20;
     this.alpha = (0.5 / 18) * Math.PI;
-    this.numberOfDeadPlayers = 0;
-    this.ctx = canvas.getContext("2d");
+    this.ctx = document.getElementById("canvas-background").getContext("2d");
     this.canvasTurtle = document.getElementById("canvas-Player" + this.number);
     this.canvasTurtle.style.display = "block";
     this.ctxTurtle = this.canvasTurtle.getContext("2d");
@@ -67,8 +82,8 @@ class Player {
 
   End() {
     if (
-      this.ctx.isPointInPath(SmallCircle, this.x, this.y) ||
-      !this.ctx.isPointInPath(BigCircle, this.x, this.y)
+      this.ctx.isPointInPath(this.SmallCircle, this.x, this.y) ||
+      !this.ctx.isPointInPath(this.BigCircle, this.x, this.y)
     ) {
       this.alive = false;
       this.EndGame();
@@ -88,16 +103,20 @@ class Player {
   }
 
   IamDead() {
-    if (this.alive == false) {
-      if (!ArrDeadPlayer.includes(this.name)) {
-        numberOfDeadPlayers++;
-        ArrDeadPlayer.push(this.name);
+    if (this.alive == true) {
+      for (let i = 0; i < this.numberOfPlayers; i++) {
+        if (this.ArrPlayers[i].alive == false) {
+          if (!this.ArrDeadPlayer.includes(this.ArrPlayers[i].name)) {
+            this.numberOfDeadPlayers++;
+            this.ArrDeadPlayer.push(this.ArrPlayers[i].name);
+          }
+        }
       }
     }
   }
 
   Lap() {
-    if (this.ctx.isPointInPath(Start, this.x, this.y)) {
+    if (this.ctx.isPointInPath(this.Start, this.x, this.y)) {
       this.lap++;
       document.getElementById("h2-center-player" + this.number).innerHTML =
         this.name + ": Lap" + this.lap + "/5";
@@ -111,7 +130,10 @@ class Player {
 
   DeadWon() {
     if (this.alive) {
-      if (numberOfDeadPlayers === numberOfPlayers - 1 && numberOfPlayers != 1) {
+      if (
+        this.numberOfDeadPlayers === this.numberOfPlayers - 1 &&
+        this.numberOfPlayers != 1
+      ) {
         this.StopGameEveryone();
         this.Won();
       }
@@ -119,8 +141,8 @@ class Player {
   }
 
   StopGameEveryone() {
-    for (let i = 0; i < ArrPlayers.length; i++) {
-      ArrPlayers[i].EndGame();
+    for (let i = 0; i < this.ArrPlayers.length; i++) {
+      this.ArrPlayers[i].EndGame();
     }
   }
 
@@ -134,7 +156,7 @@ class Player {
   }
 
   EveryoneLose() {
-    if (this.alive == false && numberOfPlayers == 1) {
+    if (this.alive == false && this.numberOfPlayers == 1) {
       document.getElementById("h1-center").innerHTML = "YOU ARE LOSER";
     }
   }
