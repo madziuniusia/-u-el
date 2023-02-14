@@ -148,11 +148,12 @@ export class Player {
 
   Won() {
     document.getElementById("h1-center").innerHTML = "WON " + this.name;
+    console.log("WON - ", this.name);
   }
 
   EndGame() {
     clearInterval(this.interval);
-    this.alive = false;
+    //this.alive = false;
   }
 
   EveryoneLose() {
